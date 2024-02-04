@@ -5,4 +5,5 @@ pypdf
 python-dotenv
 trulens-eval
 google-generativeai
-supabasemangum
+supabase
+mangum

@@ -2,7 +2,7 @@
 FROM public.ecr.aws/lambda/python:3.12
 
 # Copy the application files to the container
-COPY main.py utils/ /var/task
+COPY main.py app/ /var/task/
 
 # Install any necessary dependencies
 RUN pip install -r requirements.txt
