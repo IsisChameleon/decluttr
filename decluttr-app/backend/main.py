@@ -3,11 +3,11 @@ load_dotenv()
 
 import logging
 import os
-import uvicorn
 from app.api.routers.chat import chat_router
 from app.api.routers.item import item_router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from mangum import Mangum
 
 app = FastAPI()
 
@@ -27,5 +27,4 @@ if environment == "dev":
 app.include_router(chat_router, prefix="/api/chat")
 app.include_router(item_router, prefix="/api/item")
 
-if __name__ == "__main__":
-    uvicorn.run(app="main:app", host="0.0.0.0", reload=True)
+handler = Mangum(app)
